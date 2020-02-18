@@ -23,4 +23,4 @@ jobs:
       continue-on-error: true
     - name: test2
       run: |
-        busted --no-auto-insulate --lpath=${{ github.workspace }} --cpath=${{ github.workspace }} ${{ github.workspace }}/HeadlessWrapper.lua
+        busted --no-auto-insulate --lpath=${{ github.workspace }}/?/?.lua;${{ github.workspace }}/?.lua ${{ github.workspace }}/HeadlessWrapper.lua
