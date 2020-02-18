@@ -1,0 +1,5 @@
+describe("startup test", function()
+	it("require headless wrapper", function()
+		local wrapper = require("HeadlessWrapper")
+	end)
+end)
