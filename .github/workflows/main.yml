@@ -17,10 +17,6 @@ jobs:
     - name: build
       run: |
         luarocks install busted
-    - name: test1
+    - name: integration test
       run: |
-        lua ${{ github.workspace }}/HeadlessWrapper.lua
-      continue-on-error: true
-    - name: test2
-      run: |
-        busted --no-auto-insulate --lpath=${{ github.workspace }}/?/?.lua;${{ github.workspace }}/?.lua ${{ github.workspace }}/HeadlessWrapper.lua
+        busted --no-auto-insulate --lpath=${{ github.workspace }}/?/?.lua;${{ github.workspace }}/?.lua ${{ github.workspace }}/Tests/Integration
