@@ -23,4 +23,4 @@ jobs:
         luarocks install busted
     - name: integration test
       run: |
-        busted --verbose --no-auto-insulate --lpath=${{ github.workspace }}/lua/?.lua;${{ github.workspace }}/?.lua ${{ github.workspace }}/spec
+        busted --verbose --no-auto-insulate --lpath=${{ github.workspace }}/lua/?.lua ${{ github.workspace }}/spec
