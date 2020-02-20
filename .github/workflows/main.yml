@@ -14,13 +14,18 @@ jobs:
         luaVersion: "luajit-2.0.5"
     - uses: leafo/gh-actions-luarocks@v2
       
-    - name: setup
+    - name: setup runtime
       run: |
         unzip runtime-win32.zip
 
-    - name: build
+    - name: setup busted
       run: |
         luarocks install busted
+        
+    - name: setup luacov
+      run: |
+        luarocks install luacov
+        
     - name: integration test
       run: |
-        busted --verbose --no-auto-insulate --lpath=${{ github.workspace }}/lua/?.lua ${{ github.workspace }}/spec
+        busted --verbose -c --no-auto-insulate --lpath=${{ github.workspace }}/lua/?.lua ${{ github.workspace }}/spec
