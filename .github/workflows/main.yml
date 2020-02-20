@@ -29,3 +29,8 @@ jobs:
     - name: integration test
       run: |
         busted --verbose -c --no-auto-insulate --lpath=${{ github.workspace }}/lua/?.lua ${{ github.workspace }}/spec
+        
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
